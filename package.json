@@ -1,0 +1,25 @@
+{
+    "name": "nogueira-consulting-home",
+    "description": "Nogueira Consulting Home",
+    "version": "1.0.0",
+    "main": ".dist/server/server.js",
+    "scripts": {
+        "postinstall": "npm run dist_client && npm run dist_server",
+        "create_client": "rmdir /s /q dist && mkdir dist\\client",
+        "copy_client": "copy src\\client dist\\client",
+        "dist_client": "npm run create_client && npm run copy_client",
+        "dist_server": "node node_modules/typescript/bin/tsc -p src",
+        "start": "node dist/server/server.js"
+    },
+    "engines": {
+        "node": "12.18.0"
+    },
+    "dependencies": {
+        "@types/express": "^4.17.13",
+        "express": "^4.17.1",
+        "typescript": "^4.4.4"
+    },
+    "devDependencies": {
+        "tslint": "^6.1.3"
+    }
+}
